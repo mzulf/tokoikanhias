@@ -1,0 +1,472 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Mooli&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3 {
+    font-family: "Comfortaa", cursive;
+}
+
+body {
+    min-height: 100vh;
+    background: #fff;
+    font-family: "Mooli", sans-serif;
+    padding-top: 90px;  
+}
+
+header {
+    position: fixed;  
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1px 30px;  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background-color: rgb(42, 131, 176); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.logo {
+    color: #112434;
+    font-weight: 1000;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+/* Navbar */
+.navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navigation li {
+    list-style: none;
+    margin-left: 20px;
+}
+
+/* Tautan navbar */
+.navigation li a {
+    text-decoration: none;
+    padding: 6px 15px;
+    color: #112434;
+    border-radius: 10px;
+    font-size: 18px;
+    transition: background 0.3s ease;
+}
+
+/* Hover dan active state */
+.navigation li a:hover,
+.navigation li a.active {
+    background: #112434;
+    color: #fff;
+}
+
+
+.navigation li a {
+    transition: all 0.3s ease;
+}
+
+
+.parallax {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 140vh;
+    background: radial-gradient(circle, rgba(240, 255, 246, 0.4) 34%, rgb(42, 131, 176) 90%);
+}
+
+/* Set video background */
+#video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Make the video cover the entire area */
+    z-index: -1; /* Ensure video stays behind content */
+}
+
+.parallax img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 95%;
+    pointer-events: none;
+    /* Apply drop-shadow filter to images */
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4)); /* Adjust the shadow properties here */
+}
+
+#title {
+    position: absolute;
+    top: 8%;
+    font-weight: bold;
+    font-size: clamp(1.8rem, 5vw, 4rem);
+    color: rgb(19, 19, 37);
+    z-index: 50; 
+}
+
+
+
+.product {
+    position: relative;
+    padding: 60px 20px; 
+    background: #f6f0e7;
+    width: 100%;
+    text-align: center;
+}
+
+.product h2 {
+    font-size: 2.5rem;
+    color: #112434;
+    margin-bottom: 30px; 
+    position: relative;
+}
+
+.product h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: #112434;
+    margin: 15px auto 0;
+}
+
+.product p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 20px; 
+    line-height: 1.8; 
+}
+
+
+.cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    padding: 60px 60px;
+    background: #f6f0e7;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: min(100%, 450px);
+    background-color: #fff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    padding: 30px 40px;
+}
+
+.card img {
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.card h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 20px 0 20px;
+    text-align: center;
+    color: #000;
+}
+
+.card p {
+    font-size: 1rem;
+    text-align: justify;
+    line-height: 1.5;
+    color: #000;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(206, 245, 223, 0.9), rgba(72, 161, 170, 0.9));
+    border-radius: 20px;
+    z-index: 1;
+    opacity: 0;
+    padding: 20px 40px;
+    transition: all 0.4s ease-in-out;
+}
+
+.overlay:hover {
+    opacity: 1;
+    cursor: default;
+}
+
+
+/* Pemesanan Ikan */
+.shop {
+    padding: 60px 20px;
+    background-color: #f6f0e7;
+    text-align: center;
+}
+
+.shop h2 {
+    font-size: 2.5rem;
+    color: #112434;
+    margin-bottom: 20px;
+}
+
+.shop h3 {
+    color: #112434;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+.shop p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.shop form {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-section {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.form-section:last-of-type {
+    border-bottom: none;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.shop label {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+    font-weight: 500;
+}
+
+.shop input, 
+.shop select, 
+.shop textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    background-color: #f8f9fa;
+}
+
+.shop input:focus, 
+.shop select:focus, 
+.shop textarea:focus {
+    outline: none;
+    border-color: #112434;
+    background-color: #fff;
+    box-shadow: 0 0 0 2px rgba(17, 36, 52, 0.1);
+}
+
+.shop textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.shop button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #112434;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+.shop button:hover {
+    background-color: #0d1a21;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(17, 36, 52, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .shop form {
+        padding: 20px;
+    }
+
+    .shop h2 {
+        font-size: 2rem;
+    }
+
+    .shop h3 {
+        font-size: 1.3rem;
+    }
+}
+
+
+
+/* About Section */
+.about {
+    padding: 60px 20px;
+    background-color: #f6f0e7;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    color: #112434;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.about h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: #112434;
+    margin: 15px auto 0;
+}
+
+.about-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.highlight {
+    color: #112434;
+    font-weight: 600;
+}
+
+.about-features {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.feature {
+    flex: 1;
+    max-width: 200px;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+}
+
+.feature i {
+    font-size: 2.5rem;
+    color: #112434;
+    margin-bottom: 15px;
+}
+
+.feature p {
+    font-size: 1.1rem;
+    margin: 0;
+    font-weight: 500;
+}
+/* Footer */
+footer {
+    background-color: rgb(42, 131, 176);
+    color: #fff;
+    text-align: center;
+    padding: 40px 20px; 
+}
+
+footer p {
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.footer-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-links li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.footer-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.footer-links li a:hover {
+    color: #f6f0e7;
+}
+
+.social-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; 
+    padding: 20px 0;
+}
+
+.follow-text {
+    margin: 0;
+    color: #fff;
+    font-size: 1.2rem; 
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px; 
+}
+
+.social-icon {
+    color: #fff;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #f6f0e7;
+}
